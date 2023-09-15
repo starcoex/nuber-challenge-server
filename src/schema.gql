@@ -1,0 +1,53 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreatePodcastInput {
+  category: String!
+  id: ID!
+  rating: Int!
+  title: String!
+}
+
+type CreatePodcastOutput {
+  error: String
+  ok: Boolean!
+  podcast: Podcast!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Episode {
+  category: String!
+  createdAt: DateTime!
+  id: ID!
+  rating: Int!
+  title: String!
+  updatedAt: DateTime!
+}
+
+type Mutation {
+  createPodcast(createPodcastInput: CreatePodcastInput!): CreatePodcastOutput!
+}
+
+type Podcast {
+  category: String!
+  createdAt: DateTime!
+  episodes: [Episode!]!
+  id: ID!
+  rating: Int!
+  title: String!
+  updatedAt: DateTime!
+}
+
+type PodcastAllOutput {
+  error: String
+  ok: Boolean!
+}
+
+type Query {
+  seePodcasts: PodcastAllOutput!
+}
